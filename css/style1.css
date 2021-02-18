@@ -1,0 +1,445 @@
+/* style1.css */
+
+/* GENERAL STYLE: */
+body {
+	background-color: LightSteelBlue;
+	font-family: calibri;
+	color: white;
+}
+
+/* unvisited link */
+a:link {
+  color: gold;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: orange;
+}
+
+/* ------------------------------------------------------- */
+
+/* Applies to the top bar: */
+.container {
+	list-style: none;
+	/* padding: 5px; */
+	background-color: #232323;
+	padding: 0px;
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	
+	
+	}
+	
+	
+.container a {
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+.container a:hover {
+	background-color: DimGrey;
+}
+
+
+@media all and (max-width: 650px), (orientation: portrait) {
+	.container{
+		flex-direction: column;
+	}
+	.container li {
+		text-align: center;
+		border: 1px solid  white;
+		border-radius: 3px;
+	}
+	.container img {
+		width: 400px;
+	}
+}
+
+@media all and (min-resolution: 180dpi) {
+	.container a{
+		font-size: 32px;
+	}
+}
+/* END OF TopBar */
+/* ------------------------------------------------------- */
+
+/* SOCIAL-LINKS STYLES (VARIOUS FORMS) */
+.socialLinks {
+	list-style: none;
+	/* padding: 5px; */
+	/* background-color: #232323; */
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-end;
+	margin-top: 10%;
+	}
+	
+.socialLinks img {
+	background-color: #232323;
+	border: 1px white solid;
+	width: 50px;
+}
+
+
+
+.socialLinks a {
+	padding: 13px;
+}
+
+.socialLinksList {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	/* justify-content: center; */
+	/* align-items: flex-end; */
+	/* margin-top: 10%; */
+	}
+	
+.socialLinksList img {
+	/* background-color: #232323; */
+	/* border: 1px white solid; */
+	width: 30px;
+}
+
+@media all and (min-resolution: 180dpi) {
+	.socialLinksList img {
+	width: 60px;
+	}
+	.socialLinksList li {
+		font-size: 2em;
+	}
+}
+
+
+.socialLinksList a {
+	/* padding: 13px; */
+}
+
+.socialLinksList li{
+	display: flex;
+	align-items: center;
+}
+
+/* ------------------------------------------------------- */
+
+/* HEADER STYLES: */
+h3 {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 40px black, 2px -2px 5px black;
+	
+	
+	
+}
+
+h1 {
+	text-shadow: 0px 0px 40px black, 2px -2px 5px black;
+	margin-left: 30px;
+}
+
+h2 {
+	
+}
+/* END OF HEADER STYLES. */
+/* ------------------------------------------------------- */
+
+/* GENERAL & MAIN PAGE RELATED STYLES: */
+.MainLogo {
+	display: flex;
+	justify-content: center;
+	margin-top: ;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	background-color: rgba(0,0,0,0.6);
+}
+
+
+body {
+  background-image: url(../images/code-background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.content {
+	background-color: #232323;
+	border: 3px solid white;
+	border-radius: 10px;
+	margin: 15px 30px 15px 30px;
+	padding: 15px;
+}
+
+.splashscreen + .content {
+	margin: 10% 30px 20px 30px;
+	padding: 0px;
+}
+
+/* ------------------------------------------------------- */
+
+/* SECTION SELECTION SQUARES STYLES: */
+.squares {
+	list-style: none;
+	padding: 5px;
+	/* margin-top: 10%; */
+	/* margin-bottom: 5%; */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	}
+
+.imageSquare:hover {
+	/* width: 100%; */
+	
+	outline: 200px solid rgba(255, 255, 255, 0.5) !important;
+     outline-offset: -200px;
+     overflow: hidden;
+     position: relative;
+   
+}
+
+.imageSquare {
+     width:480px; 
+     height:360px;
+	/* width: 24%;  */
+     /* height: 18%;  */
+	/* width: 100%;  */
+     /* height: 100%;  */
+     background-image: url(../images/square_projects.png);
+	margin: 60px 20px 30px 20px;
+	color: white;
+	font-size: 80px;
+	text-decoration: none;
+	display: flex;
+	align-items: flex-end;
+ }
+
+
+
+#sProjects{
+	background-image: url(../images/square_projects.png);
+	background-size: cover;
+}
+
+#sResume{
+	background-image: url(../images/square_resume.png);
+	background-size: cover;
+}
+
+#sContact{
+	background-image: url(../images/square_contact.png);
+	background-size: cover;
+}
+ 
+.imageSquare p, a{
+	text-decoration: none;
+}
+ 
+
+ 
+.imageSquare p{
+	
+	display: flex;
+	align-items: flex-end;
+	padding: 25px;
+	color: white;
+	font-weight: bold;
+	margin: 0px;
+	width: 480px;
+	/* width: 57%;  */
+	/* height: 40%; */
+	background-color: rgba(0,0,0,0.8);
+	
+	
+}
+
+@media all and (max-width: 650px), (orientation: portrait) {
+	.imageSquare {
+		width:360px; 
+		height:270px;
+		font-size: 60px;
+	}
+}
+/* 
+@media all and (max-width: 450px), (orientation: portrait) {
+	.imageSquare {
+		width:160px; 
+		height:120px;
+		font-size: 30px;
+	}
+	.imageSquare:hover {
+		outline: 100px solid rgba(255, 255, 255, 0.5) !important;
+		outline-offset: -100px;
+	}
+	.imageSquare p{
+		width: 160px;;
+	}
+}
+ */
+/* END OF SELECTION SQUARES STYLES. */
+/* ------------------------------------------------------- */
+
+/* GENERAL DIV LAYOUT CLASSES STYLES: */
+.row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.rowStart {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.gallery {
+	width: 65%;
+	/* padding: 40px; */
+}
+/* END OF DIV LAYOUT STYLES. */
+/* ------------------------------------------------------- */
+
+/* ID & SPECIFIC ELEMENTS STYLES: */
+.twitterFeed {
+	width: 35%;
+	/* padding: 40px; */
+	/* width: 40%; */
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: flex-end; */
+}
+
+
+.bottom {
+	margin-left: 30px;
+}
+
+
+#mysteryBox {
+	padding-right: 20px;
+}
+
+
+
+#secretGame {
+  background-image: url(../images/generic-2d-game.png);
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  background-size: cover;
+}
+
+#yt {
+  background-image: url(../images/dark-yt-background.png);
+  background-size: cover;
+}
+
+#PastProgramming {
+  background-image: url(../images/CJ-map-background.png);
+  background-size: cover;
+}
+
+#CJCover {
+	margin-left: 40px;
+	border: 2px solid black;
+	box-shadow: 5px 5px 15px rgba(255,255,255,0.2);
+}
+
+@media all and (max-width: 700px), (orientation: portrait) {
+	#CJCover {
+		margin-left: 0px;
+		width: 100%;
+	}
+}
+
+.CJScreenshots {
+	width: 360px;
+	/* margin: 40px; */
+	border: 2px solid black;
+	box-shadow: 5px 5px 15px rgba(255,255,255,0.2);
+	
+}
+
+figure {
+	margin: 40px;
+}
+
+.CJScreenshots + figcaption {
+	width: 360px;
+}
+
+@media all and (max-width: 650px), (orientation: portrait) {
+	#setWidthPara {
+		width: 100% !important;
+	}
+	iframe {
+		width: 320px !important;
+		height: 180px !important;
+	}
+	.CJScreenshots {
+		width: 100%;
+	}
+	.CJScreenshots + figcaption {
+		width: 100%;
+	}
+	.twitter-timeline {
+		width: 100% !important;
+		height: 960px !important;
+	}
+	
+}
+
+.galleryImages {
+	/* width: 360px; */
+	width: 48%;
+	margin: 15px 0px 15px 0px;
+	border: 2px solid white;
+	/* box-shadow: 5px 5px 15px rgba(255,255,255,0.2); */
+	
+}
+
+@media all and (max-width: 750px), (orientation: portrait) {
+	#homeRow {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+	}
+	.gallery {
+		width: 100%;
+	}
+	.twitterFeed {
+		width: 100%;
+		
+	}
+	
+	
+}
+@media all and (max-width: 600px), (orientation: portrait) {
+	.galleryImages {
+		width: 100%;
+		
+	}
+}
+/* END OF ID & SPECIFIC ELEMENTS. */
+/* ------------------------------------------------------- */
+
+

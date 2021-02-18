@@ -1,0 +1,198 @@
+/* resume.css */
+
+body {
+	background-color: MintCream;
+	/* font-family: helvetica; */
+	font-family: segoe ui;
+	/* font-weight: lighter; */
+	color: black;
+}
+
+
+/* ------------------------------------------------------- */
+
+/* Applies to the top bar: */
+.container {
+	list-style: none;
+	/* padding: 5px; */
+	background-color: #232323;
+	padding: 0px;
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	
+	
+	}
+	
+	
+.container a {
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+.container a:hover {
+	background-color: DimGrey;
+}
+
+
+@media all and (max-width: 650px), (orientation: portrait) {
+	.container{
+		flex-direction: column;
+	}
+	.container li {
+		text-align: center;
+		border: 1px solid  white;
+		border-radius: 3px;
+	}
+	.container img {
+		width: 400px;
+	}
+}
+
+@media all and (min-resolution: 180dpi) {
+	.container a{
+		font-size: 32px;
+	}
+}
+/* END OF TopBar */
+/* ------------------------------------------------------- */
+
+
+
+.content {
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: center; */
+	
+	/* using align in html instead. */
+}
+
+.resume {
+	width: 75%;
+	border: 3px solid black;
+	background-color: Snow;
+	display: flex;
+	flex-direction: flex-start;
+	text-align: left;
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+@media all and (max-width: 850px), (orientation: portrait) {
+	.resume {
+		width: 95%;
+	}
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	background-color: LightBlue;
+}
+
+.column2 {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+@media all and (max-width: 700px), (orientation: portrait) {
+	.resume {
+		display: flex;
+		flex-direction: column;
+	}
+	.column {
+		width: 100%;
+	}
+	.column2 {
+		width: 100%;
+	}
+}
+
+.header {
+	background-color: SteelBlue;
+	height: 200px;
+	padding: 15px;
+	color: white;
+	
+}
+
+.header p {
+	border-left: 2px solid white;
+	padding-left: 4px;
+}
+
+.sidePanel {
+	background-color: LightBlue;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: left;
+	padding: 15px;
+}
+
+.summary {
+	background-color: AliceBlue;
+	height: 200px;
+	padding: 15px;
+}
+
+.general {
+	padding: 15px;
+}
+
+h2 {
+	color: white;
+	margin: 0px;
+	/* font-size:  */
+}
+
+h3 {
+	/* margin: 0px; */
+	/* margin-bottom: 18px; */
+	border-bottom: 1px solid RoyalBlue;
+}
+
+p {
+	/* margin: 0px; */
+}
+
+.blue {
+	color: RoyalBlue;
+	white-space:nowrap;
+     overflow:hidden;
+	/* font-size: 1em; */
+    /* text-overflow:ellipsis; */
+}
+
+@media all and (max-width: 700px), (min-resolution: 180dpi), (orientation: portrait)  {
+	/* .blue { */
+		/* font-size: 100%; */
+	/* } */
+	.summary {
+		/* font-size: 2em; */
+		height: auto;
+	}
+	.header {
+		/* font-size: 16px; */
+		height: auto;
+	}
+}
+
+.dates {
+	/* margin: 0px; */
+	color: DarkCyan;
+}
+
+.general li {
+	margin-bottom: 6px;
+}
+
+
+
+
