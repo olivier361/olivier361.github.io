@@ -14,11 +14,11 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        ftp-server: sftp.csc.uvic.ca
+        server: sftp.csc.uvic.ca
         # FTP account username
-        ftp-username: ${{ secrets.ftp_server_username }} 
+        username: ${{ secrets.ftp_server_username }} 
         # FTP account password
-        ftp-password: ${{ secrets.ftp_server_password }}
+        password: ${{ secrets.ftp_server_password }}
         # The local folder to copy, defaults to root project folder
         # optional, default is ./
         local-dir: ./public_html/site-staging
