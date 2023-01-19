@@ -19,9 +19,9 @@ jobs:
         username: ${{ secrets.ftp_server_username }} 
         # FTP account password
         password: ${{ secrets.ftp_server_password }}
-        # The local folder to copy, defaults to root project folder
+        # The server folder to deploy to.
         # optional, default is ./
-        local-dir: ./public_html/site-staging/
+        server-dir: ./public_html/site-staging/
         # Print changes instead of performing changes
         dry-run: true
         # files to exclude from the server
