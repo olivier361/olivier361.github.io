@@ -22,8 +22,6 @@ jobs:
         # The local folder to copy, defaults to root project folder
         # optional, default is ./
         local-dir: ./public_html/site-staging
-        # Passes through options into git-ftp
-        git-ftp-args: # optional
         # Print changes instead of performing changes
         dry-run: true
         # files to exclude from the server
