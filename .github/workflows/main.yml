@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 2 # needed to deploy only new files in ftp-deploy v3.1.2
 
@@ -44,7 +44,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@3.1.2
       with:
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        ftp-server: sftp://sftp.csc.uvic.ca:22/public_html/site-staging/
+        ftp-server: sftp://sftp.csc.uvic.ca:22/public_html/site-staging
         # FTP account username
         ftp-username: ${{ secrets.ftp_server_username }} 
         # FTP account password
