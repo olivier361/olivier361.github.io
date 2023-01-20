@@ -54,13 +54,26 @@ jobs:
        
     # web-deploy - v1.0
 
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
+    # - name: 📂 Sync Files
+    #   uses: SamKirkland/web-deploy@v1
+    #   with:
+    #     target-server: sftp.csc.uvic.ca
+    #     remote-user: ${{ secrets.FTP_SERVER_USERNAME }}
+    #     # private-ssh-key: ${{ secrets.ftp_server_password }}
+    #     private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     ssh-port: 22
+    #     destination-path: ~/public_html/site-staging/
+    #     rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+
+    # sftp-deploy-action - v1.2.4
+
+    - name: Deploy file
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
-        target-server: sftp.csc.uvic.ca
-        remote-user: ${{ secrets.FTP_SERVER_USERNAME }}
-        # private-ssh-key: ${{ secrets.ftp_server_password }}
-        private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-port: 22
-        destination-path: ~/public_html/site-staging/
-        rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+          username: ${{ secrets.FTP_SERVER_USERNAME }}
+          server: sftp.csc.uvic.ca
+          port: 22
+          local_path: './*'
+          remote_path: '/public_html/site-staging'
+          sftp_only: true
+          password: ${{ secrets.FTP_SERVER_PASSWORD }}
