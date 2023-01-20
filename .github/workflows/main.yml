@@ -50,7 +50,7 @@ jobs:
         # FTP account password
         ftp-password: ${{ secrets.ftp_server_password }}
         # other arguments
-        git-ftp-args: --dry-run
+        git-ftp-args: --insecure --dry-run
        
     # web-deploy - v1.0
 
