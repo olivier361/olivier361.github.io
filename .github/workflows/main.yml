@@ -8,26 +8,36 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: 📂 Sync files
-      # You may pin to the exact commit or the version.
-      # uses: SamKirkland/FTP-Deploy-Action@6647c2f8ad10f869fded8e5a6253c9da11d7fb47
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    # - name: 📂 Sync files
+    #   # You may pin to the exact commit or the version.
+    #   # uses: SamKirkland/FTP-Deploy-Action@6647c2f8ad10f869fded8e5a6253c9da11d7fb47
+    #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    #   with:
+    #     # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+    #     server: sftp.csc.uvic.ca
+    #     # FTP account username
+    #     username: ${{ secrets.ftp_server_username }} 
+    #     # FTP account password
+    #     password: ${{ secrets.ftp_server_password }}
+    #     # The server folder to deploy to.
+    #     # optional, default is ./
+    #     server-dir: ./public_html/site-staging/
+    #     # Print changes instead of performing changes
+    #     dry-run: true
+    #     # files to exclude from the server
+    #     exclude: |
+    #       **/.git*
+    #       **/.git*/**
+    #       **/.github*
+    #       **/.github*/**
+    #       **/README.md
+
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
       with:
-        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        server: sftp.csc.uvic.ca
-        # FTP account username
-        username: ${{ secrets.ftp_server_username }} 
-        # FTP account password
-        password: ${{ secrets.ftp_server_password }}
-        # The server folder to deploy to.
-        # optional, default is ./
-        server-dir: ./public_html/site-staging/
-        # Print changes instead of performing changes
-        dry-run: true
-        # files to exclude from the server
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/.github*
-          **/.github*/**
-          **/README.md
+        target-server: sftp.csc.uvic.ca
+        remote-user: ${{ secrets.ftp_server_username }}
+        private-ssh-key: ${{ secrets.ftp_server_password }}
+        ssh-port: 22
+        destination-path: ~/public_html/site-staging/
+        rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
