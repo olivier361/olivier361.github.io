@@ -7,6 +7,10 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 2 # needed to deploy only new files in ftp-deploy v3.1.2
+
+    # ftp-deploy - v4.3.3
 
     # - name: 📂 Sync files
     #   # You may pin to the exact commit or the version.
@@ -32,12 +36,30 @@ jobs:
     #       **/.github*/**
     #       **/README.md
 
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
+    # ftp-deploy - v3.1.2
+
+    - name: 📂 Sync files
+      # You may pin to the exact commit or the version.
+      # uses: SamKirkland/FTP-Deploy-Action@6647c2f8ad10f869fded8e5a6253c9da11d7fb47
+      uses: SamKirkland/FTP-Deploy-Action@3.1.2
       with:
-        target-server: sftp.csc.uvic.ca
-        remote-user: ${{ secrets.ftp_server_username }}
-        private-ssh-key: ${{ secrets.ftp_server_password }}
-        ssh-port: 22
-        destination-path: ~/public_html/site-staging/
-        rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+        ftp-server: sftp://sftp.csc.uvic.ca:22/public_html/site-staging/
+        # FTP account username
+        ftp-username: ${{ secrets.ftp_server_username }} 
+        # FTP account password
+        ftp-password: ${{ secrets.ftp_server_password }}
+        # other arguments
+        git-ftp-args: --dry-run
+       
+    # web-deploy - v1.0
+
+    # - name: 📂 Sync Files
+    #   uses: SamKirkland/web-deploy@v1
+    #   with:
+    #     target-server: sftp.csc.uvic.ca
+    #     remote-user: ${{ secrets.ftp_server_username }}
+    #     private-ssh-key: ${{ secrets.ftp_server_password }}
+    #     ssh-port: 22
+    #     destination-path: ~/public_html/site-staging/
+    #     rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
