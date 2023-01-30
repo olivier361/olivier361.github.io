@@ -76,5 +76,5 @@ jobs:
           local_path: './*'
           remote_path: '/public_html/site-staging'
           sftp_only: true
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          # password: ${{ secrets.FTP_SERVER_PASSWORD }}
+          # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.FTP_SERVER_PASSWORD }}
