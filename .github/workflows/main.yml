@@ -78,3 +78,4 @@ jobs:
           sftp_only: true
           # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.FTP_SERVER_PASSWORD }}
+          delete_remote_files: true
