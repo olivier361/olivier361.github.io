@@ -80,6 +80,14 @@ jobs:
     #       password: ${{ secrets.FTP_SERVER_PASSWORD }}
     #       # delete_remote_files: true # not supported as sftp_only=true prevents directory deletion
 
+    # git-restore-mtime - v2
+    # https://github.com/marketplace/actions/git-restore-mtime
+
+    # Restore file modified timestamps to their commit time.
+    # This allows the sftp-upload-action to only upload new files to the server
+    # instead of reuploading the whole repository even if the files on the server are the same.
+    - name: restore timestamps
+      uses: chetan/git-restore-mtime-action@v2
 
     # sftp-upload-action - v2.0.2
     # https://github.com/marketplace/actions/sftp-uploader
