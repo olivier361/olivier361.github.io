@@ -1,3 +1,47 @@
+# DEPLOY WEBSITE TO PRODUCTION ON PUSH TO MAIN
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy website to production on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2 # needed to check commit differences to deploy only new files
+
+    # git-restore-mtime - v2
+    # https://github.com/marketplace/actions/git-restore-mtime
+
+    # Restore file modified timestamps to their commit time.
+    # This allows the sftp-upload-action to only upload new files to the server
+    # instead of reuploading the whole repository even if the files on the server are the same.
+    - name: ⏱ Restore timestamps
+      uses: chetan/git-restore-mtime-action@v2
+
+    # sftp-upload-action - v2.0.2
+    # https://github.com/marketplace/actions/sftp-uploader
+
+    - name: 📂 SFTP uploader                          # Upload to SFTP 
+      uses: wangyucode/sftp-upload-action@v2.0.2
+      with:
+        host: sftp.csc.uvic.ca
+        port: 22                                      # Optional, Default to 22.
+        username: ${{ secrets.FTP_SERVER_USERNAME }}
+        password: ${{ secrets.FTP_SERVER_PASSWORD }}
+        compress: true                                # Compression
+        forceUpload: false                            # Optional, Force uploading all files, Default to false(upload only newer files).
+        localDir: '.'                                 # Required, Absolute or relative to cwd.
+        remoteDir: '/public_html/site'                # Required, Absolute path only.
+        removeExtraFilesOnServer: true                # Optional, Remove extra files on server. Default to false.
+        exclude: '.git/**,.github/**,README.md'       # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''.
+        dryRun: false                                 # Optional. Default to false.
+
+# DEPLOY WEBSITE TO STAGING ON PUSH TO RELEASE BRANCHES
 on:
   push:
     branches:
