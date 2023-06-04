@@ -75,7 +75,7 @@ jobs:
           port: 22
           local_path: './*'
           remote_path: '/public_html/site-staging'
-          sftp_only: true
+          sftp_only: true # required by the current server setup
           # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.FTP_SERVER_PASSWORD }}
-          delete_remote_files: true
+          # delete_remote_files: true # not supported as sftp_only=true prevents directory deletion
