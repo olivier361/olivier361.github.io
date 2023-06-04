@@ -8,7 +8,7 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
       with:
-        fetch-depth: 2 # needed to deploy only new files in ftp-deploy v3.1.2
+        fetch-depth: 2 # needed to check commit differences to deploy only new files
 
     # ftp-deploy - v4.3.3
 
@@ -67,7 +67,7 @@ jobs:
 
     # sftp-deploy-action - v1.2.4
 
-    - name: Deploy file
+    - name: 📂 Deploy files to Server
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
           username: ${{ secrets.FTP_SERVER_USERNAME }}
@@ -75,5 +75,7 @@ jobs:
           port: 22
           local_path: './*'
           remote_path: '/public_html/site-staging'
-          sftp_only: true
+          sftp_only: true # required by the current server setup
+          # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.FTP_SERVER_PASSWORD }}
+          # delete_remote_files: true # not supported as sftp_only=true prevents directory deletion
