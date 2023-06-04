@@ -67,15 +67,34 @@ jobs:
 
     # sftp-deploy-action - v1.2.4
 
-    - name: 📂 Deploy files to Server
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+    # - name: 📂 Deploy files to Server
+    #   uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+    #   with:
+    #       username: ${{ secrets.FTP_SERVER_USERNAME }}
+    #       server: sftp.csc.uvic.ca
+    #       port: 22
+    #       local_path: './*'
+    #       remote_path: '/public_html/site-staging'
+    #       sftp_only: true # required by the current server setup
+    #       # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #       password: ${{ secrets.FTP_SERVER_PASSWORD }}
+    #       # delete_remote_files: true # not supported as sftp_only=true prevents directory deletion
+
+
+    # sftp-upload-action - v2.0.2
+    # https://github.com/marketplace/actions/sftp-uploader
+
+    - name: 📂 SFTP uploader                          # Upload to SFTP 
+      uses: wangyucode/sftp-upload-action@v2.0.2
       with:
-          username: ${{ secrets.FTP_SERVER_USERNAME }}
-          server: sftp.csc.uvic.ca
-          port: 22
-          local_path: './*'
-          remote_path: '/public_html/site-staging'
-          sftp_only: true # required by the current server setup
-          # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          password: ${{ secrets.FTP_SERVER_PASSWORD }}
-          # delete_remote_files: true # not supported as sftp_only=true prevents directory deletion
+        host: sftp.csc.uvic.ca
+        port: 22                                      # Optional, Default to 22.
+        username: ${{ secrets.FTP_SERVER_USERNAME }}
+        password: ${{ secrets.FTP_SERVER_PASSWORD }}
+        compress: true                                # Compression
+        forceUpload: false                            # Optional, Force uploading all files, Default to false(upload only newer files).
+        localDir: '.'                                 # Required, Absolute or relative to cwd.
+        remoteDir: '/public_html/site-staging'        # Required, Absolute path only.
+        removeExtraFilesOnServer: false               # Optional, Remove extra files on server. Default to false.
+        exclude: '.git*,.DS_Store'                    # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''.
+        dryRun: false                                 # Optional. Default to false.
