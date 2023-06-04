@@ -96,5 +96,5 @@ jobs:
         localDir: '.'                                 # Required, Absolute or relative to cwd.
         remoteDir: '/public_html/site-staging'        # Required, Absolute path only.
         removeExtraFilesOnServer: true                # Optional, Remove extra files on server. Default to false.
-        exclude: '.git,.github,README.md'             # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''.
+        exclude: '.git*,.github*,README.md'             # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''.
         dryRun: false                                 # Optional. Default to false.
