@@ -1,1 +1,0 @@
-This file should be deleted when deployment doesn't include it in the future.
