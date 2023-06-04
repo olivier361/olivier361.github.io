@@ -1,5 +1,8 @@
-on: push
-name: 🚀 Deploy website on push
+on:
+  push:
+    branches:
+      - 'release-v*'
+name: 🚀 Deploy website to staging on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -86,7 +89,7 @@ jobs:
     # Restore file modified timestamps to their commit time.
     # This allows the sftp-upload-action to only upload new files to the server
     # instead of reuploading the whole repository even if the files on the server are the same.
-    - name: restore timestamps
+    - name: ⏱ Restore timestamps
       uses: chetan/git-restore-mtime-action@v2
 
     # sftp-upload-action - v2.0.2
