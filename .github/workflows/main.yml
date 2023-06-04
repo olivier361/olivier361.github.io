@@ -75,7 +75,7 @@ jobs:
           port: 22
           local_path: './*'
           remote_path: '/public_html/site-staging'
-          sftp_only: true
+          sftp_only: false
           # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           password: ${{ secrets.FTP_SERVER_PASSWORD }}
 
