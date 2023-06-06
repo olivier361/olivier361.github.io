@@ -20,8 +20,10 @@ jobs:
     # Restore file modified timestamps to their commit time.
     # This allows the sftp-upload-action to only upload new files to the server
     # instead of reuploading the whole repository even if the files on the server are the same.
-    - name: ⏱ Restore timestamps
-      uses: chetan/git-restore-mtime-action@v2
+
+    # TODO: Find a fix. Seems to not work well in some scenarios.
+    # - name: ⏱ Restore timestamps
+    #   uses: chetan/git-restore-mtime-action@v2
 
     # sftp-upload-action - v2.0.2
     # https://github.com/marketplace/actions/sftp-uploader
