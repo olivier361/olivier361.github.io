@@ -5,6 +5,7 @@ body {
 	background-color: LightSteelBlue;
 	font-family: calibri;
 	color: white;
+	margin: 0px;
 }
 
 /* unvisited link */
@@ -123,9 +124,9 @@ a:visited {
 }
 
 
-.socialLinksList a {
+/* .socialLinksList a { */
 	/* padding: 13px; */
-}
+/* } */
 
 .socialLinksList li{
 	display: flex;
@@ -152,9 +153,6 @@ h1 {
 	margin-left: 30px;
 }
 
-h2 {
-	
-}
 /* END OF HEADER STYLES. */
 /* ------------------------------------------------------- */
 
@@ -162,7 +160,7 @@ h2 {
 .MainLogo {
 	display: flex;
 	justify-content: center;
-	margin-top: ;
+	/* margin-top: ; */
 	border-top: 5px solid white;
 	border-bottom: 5px solid white;
 	background-color: rgba(0,0,0,0.6);

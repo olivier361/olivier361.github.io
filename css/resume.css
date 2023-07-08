@@ -6,6 +6,7 @@ body {
 	font-family: segoe ui;
 	/* font-weight: lighter; */
 	color: black;
+	margin: 0px;
 }
 
 /* unvisited link */
@@ -27,7 +28,6 @@ a:visited {
 	/* padding: 5px; */
 	background-color: #232323;
 	padding: 0px;
-	
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -74,20 +74,20 @@ a:visited {
 
 
 
-.content {
+/* .content { */
 	/* display: flex; */
 	/* flex-direction: column; */
 	/* justify-content: center; */
 	
 	/* using align in html instead. */
-}
+/* } */
 
 .resume {
 	width: 75%;
 	border: 3px solid black;
 	background-color: Snow;
 	display: flex;
-	flex-direction: flex-start;
+	flex-direction: column;
 	text-align: left;
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
@@ -98,38 +98,23 @@ a:visited {
 	}
 }
 
-.column {
+.top-half {
 	display: flex;
-	flex-direction: column;
-	width: 40%;
-	background-color: LightBlue;
+	flex-direction: row;
+	width: 100%;
 }
 
-.column2 {
+.bottom-half {
 	display: flex;
-	flex-direction: column;
-	width: 60%;
-}
-
-@media all and (max-width: 700px), (orientation: portrait) {
-	.resume {
-		display: flex;
-		flex-direction: column;
-	}
-	.column {
-		width: 100%;
-	}
-	.column2 {
-		width: 100%;
-	}
+	flex-direction: row;
+	width: 100%;
 }
 
 .header {
 	background-color: SteelBlue;
-	height: 200px;
 	padding: 15px;
 	color: white;
-	
+	width: 40%;
 }
 
 .header p {
@@ -137,8 +122,9 @@ a:visited {
 	padding-left: 4px;
 }
 
-.sidePanel {
+.side-panel {
 	background-color: LightBlue;
+	width: 40%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -148,12 +134,13 @@ a:visited {
 
 .summary {
 	background-color: AliceBlue;
-	height: 200px;
-	padding: 15px;
+	width: 60%;
+	padding: 15px 15px 30px 15px;
 }
 
 .general {
 	padding: 15px;
+	width: 60%;
 }
 
 h2 {
@@ -168,16 +155,38 @@ h3 {
 	border-bottom: 1px solid RoyalBlue;
 }
 
-p {
-	/* margin: 0px; */
-}
-
 .blue {
 	color: RoyalBlue;
 	white-space:nowrap;
-     overflow:hidden;
+    overflow:hidden;
 	/* font-size: 1em; */
     /* text-overflow:ellipsis; */
+}
+
+.mobile-only {
+	display: none;
+}
+
+@media all and (max-width: 700px), (orientation: portrait) {
+	.resume {
+		display: flex;
+		flex-direction: column;
+	}
+	.top-half {
+		flex-direction: column;
+	}
+	.bottom-half {
+		flex-direction: column;
+	}
+	.header, .summary, .side-panel, .general {
+		width: auto;
+	}
+	.desktop-only {
+		display: none;
+	}
+	.mobile-only {
+		display: block;
+	}
 }
 
 @media all and (max-width: 700px), (min-resolution: 180dpi), (orientation: portrait)  {
