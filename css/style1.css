@@ -346,6 +346,11 @@ body {
   background-size: cover;
 }
 
+#UnityProjects {
+	background-image: url(../images/unity-cube-game-background.png);
+	background-size: cover;
+  }
+
 #yt {
   background-image: url(../images/dark-yt-background.png);
   background-size: cover;
@@ -364,6 +369,20 @@ body {
 
 @media all and (max-width: 700px), (orientation: portrait) {
 	#CJCover {
+		margin-left: 0px;
+		width: 100%;
+	}
+}
+
+#UnityCover {
+	margin-left: 40px;
+	border: 2px solid black;
+	box-shadow: 5px 5px 15px rgba(255,255,255,0.2);
+	width: 750px;
+}
+
+@media all and (max-width: 700px), (orientation: portrait) {
+	#UnityCover {
 		margin-left: 0px;
 		width: 100%;
 	}
