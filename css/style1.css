@@ -32,9 +32,8 @@ a:visited {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	
-	
-	}
+	margin-bottom: 0px;
+}
 	
 	
 .container a {
@@ -49,6 +48,23 @@ a:visited {
 	background-color: DimGrey;
 }
 
+.notice-banner {
+	background-color: #e24848;
+	color: white;
+	font-weight: normal;
+	padding: 7px 10px;
+	margin-bottom: 16px;
+}
+
+.notice-banner p {
+	margin: 0px;
+}
+
+.notice-banner a {
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+}
 
 @media all and (max-width: 650px), (orientation: portrait) {
 	.container{
