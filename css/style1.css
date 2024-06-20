@@ -446,6 +446,33 @@ body {
 	}
 }
 
+@media all and (min-resolution: 180dpi) {
+	.notice-banner p {
+		font-size: 1.3rem;
+	}
+}
+
+@media all and (min-resolution: 180dpi) and (orientation: portrait) {
+	.modal-content {
+		max-width: 85%;
+		font-size: 3rem;
+		border-width: 5px;
+
+		.button-primary, .button-secondary {
+			font-size: 3rem;
+			border-width: 5px;
+		}
+
+		.button-primary {
+			margin-top: 25px;
+		}
+		
+		span {
+			font-size: 5rem;
+		}
+	}
+}
+
 /* ------------------------------------------------------- */
 /* ID & SPECIFIC ELEMENTS STYLES: */
 .twitterFeed {
