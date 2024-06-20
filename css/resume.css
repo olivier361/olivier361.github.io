@@ -83,6 +83,10 @@ a:visited {
 	.container a{
 		font-size: 32px;
 	}
+
+	.notice-banner p {
+		font-size: 1.3rem;
+	}
 }
 /* END OF TopBar */
 /* ------------------------------------------------------- */
