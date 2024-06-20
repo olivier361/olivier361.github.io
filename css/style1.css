@@ -19,7 +19,7 @@ a:visited {
   color: orange;
 }
 
-button, .button-primary {
+button, .button-primary, a.button-primary {
 	background-color: gold;
 	color: black;
 	border: 2px solid gold;
@@ -358,7 +358,7 @@ body {
 	flex-flow: row wrap;
 	justify-content: flex-end;
 
-	button {
+	button, .button-primary {
 		margin-left: 10px;
 	}
 }
@@ -429,6 +429,21 @@ body {
 	color: white;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+@media all and (max-width: 650px), (orientation: portrait) {
+	.modal-content > .rowEnd {
+		flex-direction: column;
+		text-align: center;
+
+		.button-primary, .button-secondary {
+			margin-left: 0px;
+		}
+
+		.button-primary {
+			margin-top: 15px;
+		}
+	}
 }
 
 /* ------------------------------------------------------- */
