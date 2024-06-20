@@ -10,7 +10,6 @@
 	<link href="../css/style1.css" type="text/css" rel="stylesheet">	
 	<script type="text/javascript">
 		function getModal() {
-			console.log("getModal called!")
 			return document.getElementById("notice-modal");
 		}
 
@@ -18,7 +17,6 @@
 			var modal = getModal();
 			if (!!(modal?.style)) {
 				modal.style.display = isShown ? "flex" : "none";
-				console.log(modal.style.display);
 			}
 		}
 		
