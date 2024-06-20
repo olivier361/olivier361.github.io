@@ -7,12 +7,35 @@
 	<title>Home - Olivier G. G.</title>
 	<!-- <link rel="icon" type="image/x-icon" href="../images/favicons/favicon.ico"> -->
 	<link rel="icon" type="image" href="../images/favicons/website_favicon_circle512.png">
-	<link href="../css/style1.css" type="text/css" rel="stylesheet">
+	<link href="../css/style1.css" type="text/css" rel="stylesheet">	
+	<script type="text/javascript">
+		function getModal() {
+			return document.getElementById("notice-modal");
+		}
+
+		function setModalIsShown(isShown) {
+			var modal = getModal();
+			if (!!(modal?.style)) {
+				modal.style.display = isShown ? "flex" : "none";
+			}
+		}
+		
+		// clicking outside the modal will close it
+		window.onclick = function (event) {
+			var modal = getModal();
+			if (event.target == modal) {
+				setModalIsShown(false);
+			}
+		}
+
+		window.onload = function() {
+			// show notice modal 3secs after page load is done
+			setTimeout(() => { setModalIsShown(true); }, 3000);
+		};
+	</script>
 </head>
 
 <body>
-
-
 
 <!-- Selection bar at the top: -->
 <ul class="container">
@@ -22,7 +45,31 @@
 	<li><a href="resume.html">Resume</a></li>
 	<li><a href="contact.html">Contact</a></li>
 </ul>
+<div class="notice-banner">
+	<p><b>NOTICE</b>: You are currently viewing the old version of this portfolio website. Please go to
+		<a href="https://olivier361.github.io">olivier361.github.io</a> to view the new updated site.
+	</p>
+</div>
 <!-- END OF TOP BAR -->
+
+<!-- modal popup to go to new website domain -->
+<div id="notice-modal" class="modal">
+	<div class="modal-content">
+		<span class="modal-close" onclick="setModalIsShown(false)">&times;</span>
+		<h2>Go to the new website?</h2>
+		<p>
+			You are currently viewing the old version of this portfolio website.
+			<br>
+			Please go to
+			<a href="https://olivier361.github.io">olivier361.github.io</a>
+			to view the new updated site.
+		</p>
+		<div class="rowEnd">
+			<button class="button-secondary" onclick="setModalIsShown(false)">Stay here</button>
+			<a href="https://olivier361.github.io" class="button-primary">Go to new site</a>
+		</div>
+	</div>
+</div>
 
 <div class="splashscreen">
 <!-- Social media links: -->
